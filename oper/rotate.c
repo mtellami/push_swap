@@ -6,7 +6,7 @@
 /*   By: mtellami <mtellami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 21:25:10 by mtellami          #+#    #+#             */
-/*   Updated: 2022/11/05 12:06:28 by mtellami         ###   ########.fr       */
+/*   Updated: 2022/11/06 20:40:39 by mtellami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,10 @@ void	rotate(t_stack **x)
 		return ;
 	tmp1 = (*x)->head;
 	tmp2 = pre_last_node((*x)->head);
-
-	tmp2->next->next = tmp1;
-	(*x)->head = tmp1->next;
-	tmp1->next = NULL;
+	if (tmp1 && tmp2)
+	{
+		tmp2->next->next = tmp1;
+		(*x)->head = tmp1->next;
+		tmp1->next = NULL;
+	}
 }

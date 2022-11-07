@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_size.c                                       :+:      :+:    :+:   */
+/*   is_sorted.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mtellami <mtellami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/05 15:56:27 by mtellami          #+#    #+#             */
-/*   Updated: 2022/11/07 09:12:55 by mtellami         ###   ########.fr       */
+/*   Created: 2022/11/06 12:16:41 by mtellami          #+#    #+#             */
+/*   Updated: 2022/11/07 13:03:14 by mtellami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-size_t	stack_size(t_stack *x)
+int	is_sorted(t_stack *x)
 {
 	t_node	*tmp;
-	size_t	i;
 
-	i = 0;
+	if (!x)
+		return (0);
 	tmp = x->head;
-	while (tmp)
+	while (tmp->next)
 	{
-		i++;
+		if (tmp->data > tmp->next->data)
+			return (0);
 		tmp = tmp->next;
 	}
-	return (i);
+	return (1);
 }

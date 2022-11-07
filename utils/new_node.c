@@ -6,7 +6,7 @@
 /*   By: mtellami <mtellami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 21:25:32 by mtellami          #+#    #+#             */
-/*   Updated: 2022/11/05 13:00:44 by mtellami         ###   ########.fr       */
+/*   Updated: 2022/11/07 09:11:54 by mtellami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_node	*new_node(int n)
 {
-	t_node *new;
+	t_node	*new;
 
 	new = malloc(sizeof(t_node));
 	if (!new)

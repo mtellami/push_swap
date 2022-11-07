@@ -1,27 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   free_memory.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mtellami <mtellami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/06 14:41:01 by mtellami          #+#    #+#             */
-/*   Updated: 2022/11/06 15:16:06 by mtellami         ###   ########.fr       */
+/*   Created: 2022/11/07 10:06:27 by mtellami          #+#    #+#             */
+/*   Updated: 2022/11/07 15:04:19 by mtellami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int ft_strcmp(char *s1, char  *s2)
+void	free_list(t_node **lst)
 {
-	int i;
+	t_node	*tmp;
 
-	i = 0;
-	while (s1[i] && s2[i])
+	while (*lst)
 	{
-		if (s1[i] != s2[i])
-			return (1);
-		i++;
+		tmp = (*lst)->next;
+		free(*lst);
+		*lst = tmp;
 	}
-	return (0);
+}
+
+void	free_memory(t_stack **x, t_stack **y)
+{
+	free_list(&(*x)->head);
+	free_list(&(*y)->head);
+	free(*x);
+	free(*y);
+	*x = NULL;
+	*y = NULL;
 }

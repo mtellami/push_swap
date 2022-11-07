@@ -6,7 +6,7 @@
 /*   By: mtellami <mtellami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 21:25:52 by mtellami          #+#    #+#             */
-/*   Updated: 2022/11/06 18:14:42 by mtellami         ###   ########.fr       */
+/*   Updated: 2022/11/07 09:12:39 by mtellami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_stack	*new_stack(int n, char **tab)
 {
-	t_stack *x;
+	t_stack	*x;
 	t_node	*node;
 	t_node	*s_head;
 
@@ -29,6 +29,7 @@ t_stack	*new_stack(int n, char **tab)
 	else
 	{
 		s_head = NULL;
+		x->size = n - 1;
 		while (n > 1)
 		{
 			node = new_node(ft_atoi(tab[n - 1]));
@@ -36,7 +37,6 @@ t_stack	*new_stack(int n, char **tab)
 			n--;
 		}
 		x->head = s_head;
-		x->size = n - 1;
 	}
 	return (x);
 }
