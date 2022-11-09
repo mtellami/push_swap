@@ -17,6 +17,17 @@ SRCS =  libft/ft_atoi.c \
 		utils/free_memory.c \
 		check/check_error.c \
 		check/is_sorted.c \
+		algo/simple_sort/simple_sort.c \
+		algo/simple_sort/sort_two.c \
+		algo/simple_sort/sort_three.c \
+		algo/simple_sort/sort_four.c \
+		algo/simple_sort/sort_five.c \
+		algo/complex_sort/complex_sort.c \
+		algo/complex_sort/get_pivot.c \
+		algo/complex_sort/quick_sort_left.c \
+		algo/complex_sort/quick_sort_right.c \
+
+
 
 
 OBJS = $(SRCS:.c=.o)
@@ -27,7 +38,7 @@ $(NAME) : $(OBJS)
 	ar -rc $(NAME) *.o
 
 $(OBJS) : $(SRCS)
-	cc $(FLAGS) -c $(SRCS) -I .
+	$(CC) $(FLAGS) -c $(SRCS) -I .
 
 clean :
 	rm -rf *.o

@@ -1,18 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   complex_sort.c                                     :+:      :+:    :+:   */
+/*   sort_two.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mtellami <mtellami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/07 15:26:55 by mtellami          #+#    #+#             */
-/*   Updated: 2022/11/07 15:27:47 by mtellami         ###   ########.fr       */
+/*   Created: 2022/11/08 11:18:11 by mtellami          #+#    #+#             */
+/*   Updated: 2022/11/08 14:08:55 by mtellami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	complex_sort(t_stack *a, t_stack *b)
+void	sort_two(t_stack **a)
 {
-	
+	if (!(is_sorted((*a)->head)))
+	{
+		swap(a);
+		ft_putstr("sa\n");
+	}
 }

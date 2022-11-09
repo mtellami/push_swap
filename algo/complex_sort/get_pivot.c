@@ -1,18 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   simple_sort.c                                      :+:      :+:    :+:   */
+/*   get_pivot.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mtellami <mtellami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/07 12:27:43 by mtellami          #+#    #+#             */
-/*   Updated: 2022/11/07 15:27:58 by mtellami         ###   ########.fr       */
+/*   Created: 2022/11/08 16:10:12 by mtellami          #+#    #+#             */
+/*   Updated: 2022/11/08 16:16:35 by mtellami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	simple_sort(t_stack *a, t_stack *b)
+int get_pivot(t_stack *x, int i)
 {
+	t_node	*tmp;
 	
+	tmp = x->head;
+	while (i--)
+		tmp = tmp->next;
+	return (tmp->data);
 }

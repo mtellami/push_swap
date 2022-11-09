@@ -6,7 +6,7 @@
 /*   By: mtellami <mtellami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 10:11:18 by mtellami          #+#    #+#             */
-/*   Updated: 2022/11/07 15:26:16 by mtellami         ###   ########.fr       */
+/*   Updated: 2022/11/07 18:16:20 by mtellami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ int	is_number(char *str)
 
 int	is_overflow(char *str)
 {
+	while (*str == '0')
+		str++;
 	if (ft_strlen(str) < 12)
 	{
 		if (str[0] == '-' && ft_atoi(str) > 0)
@@ -36,7 +38,7 @@ int	is_overflow(char *str)
 		else if (str[0] != '-' && ft_atoi(str) < 0)
 			return (1);
 	}
-	else
+	else 
 		return (1);
 	return (0);
 }

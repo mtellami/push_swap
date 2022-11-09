@@ -6,7 +6,7 @@
 /*   By: mtellami <mtellami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 20:14:46 by mtellami          #+#    #+#             */
-/*   Updated: 2022/11/07 15:28:16 by mtellami         ###   ########.fr       */
+/*   Updated: 2022/11/08 18:21:46 by mtellami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,15 +39,21 @@ void	r_rotate(t_stack **x);
 void	rotate(t_stack **x);
 int		check_error(int n, char **av);
 void	add_node(t_node **head, t_node *node);
-int		is_sorted(t_stack *x);
+int		is_sorted(t_node *x);
 t_node	*new_node(int n);
 t_stack	*new_stack(int n, char **tab);
 t_node	*pre_last_node(t_node *node);
 size_t	stack_size(t_stack *x);
 void	free_memory(t_stack **x, t_stack **y);
 int	ft_isdigit(char c);
-void	simple_sort(t_stack *a, t_stack *b);
-void	complex_sort(t_stack *a, t_stack *b);
-
+void	simple_sort(t_stack **a, t_stack **b);
+void	complex_sort(t_stack **a, t_stack **b);
+void	sort_two(t_stack **a);
+void	sort_three(t_stack **a);
+void	sort_four(t_stack **a, t_stack **b);
+void	sort_five(t_stack **a, t_stack **b);
+void	quick_sort_left(t_stack **a, t_stack **b);
+void	quick_sort_right(t_stack **b, t_stack **a);
+int get_pivot(t_stack *x, int i);
 
 #endif
