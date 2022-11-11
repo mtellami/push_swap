@@ -6,18 +6,18 @@
 /*   By: mtellami <mtellami@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 18:06:08 by mtellami          #+#    #+#             */
-/*   Updated: 2022/11/11 08:23:55 by mtellami         ###   ########.fr       */
+/*   Updated: 2022/11/11 16:37:21 by mtellami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	chunks_move_one(t_stack **a, t_stack **b, int *arr, int mid, int chunk, int start, int end)
+void	chunks_move_one(t_stack **a, t_stack **b, int *arr, int s, int mid, int chunk, int start, int end)
 {
-	int arr_size;
+	int		arr_size;
 	t_node	*tmp;
-	
-	arr_size = sizeof(arr) / sizeof(arr[0]);
+
+	arr_size = s;
 	if (!stack_size(*a))
 		return ;
 	if (start - chunk < 0)
@@ -35,38 +35,28 @@ void	chunks_move_one(t_stack **a, t_stack **b, int *arr, int mid, int chunk, int
 		{
 			if (get_index((*a), tmp->data) > arr_size / 2)
 			{
-				while ((*a)->head->data < arr[start] || (*a)->head->data > arr[end])
-				{
-					r_rotate(a);
-					ft_putstr("rra\n");
-				}
-				push(b, a);
-				ft_putstr("pb\n");
+				while ((*a)->head->data < arr[start]
+					|| (*a)->head->data > arr[end])
+					r_rotate_a(a);
+				push_b(b, a);
 				if (tmp->data < mid)
-				{
-					rotate(b);
-					ft_putstr("rb\n");
-				}
+					rotate_b(b);
 			}
 			else
 			{
-				while ((*a)->head->data < arr[start] || (*a)->head->data > arr[end])
+				while ((*a)->head->data < arr[start]
+					|| (*a)->head->data > arr[end])
 				{
-					rotate(a);
-					ft_putstr("ra\n");
+					rotate_a(a);
 				}
-				push(b, a);
-				ft_putstr("pb\n");
+				push_b(b, a);
 				if (tmp->data < mid)
-				{
-					rotate(b);
-					ft_putstr("rb\n");
-				}
+					rotate_b(b);
 			}
 			tmp = (*a)->head;
 		}
 		else
 			tmp = tmp->next;
 	}
-	chunks_move_one(a, b, arr, mid, chunk, start, end);
+	chunks_move_one(a, b, arr, s, mid, chunk, start, end);
 }

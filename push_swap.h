@@ -6,7 +6,7 @@
 /*   By: mtellami <mtellami@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 20:14:46 by mtellami          #+#    #+#             */
-/*   Updated: 2022/11/11 11:07:58 by mtellami         ###   ########.fr       */
+/*   Updated: 2022/11/11 12:25:26 by mtellami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,11 +48,12 @@ size_t	stack_size(t_stack *x);
 
 // operators functions
 void	push_a(t_stack **a, t_stack **b);
-void	push_a(t_stack **b, t_stack **a);
-void	r_rotate(t_stack **a);
-void	r_rotate(t_stack **b);
+void	push_b(t_stack **b, t_stack **a);
+void	r_rotate_a(t_stack **a);
+void	r_rotate_b(t_stack **b);
 void	rotate_a(t_stack **a);
-void	rotate_a(t_stack **b);
+void	rotate_b(t_stack **b);
+void	swap(t_stack **x);
 
 // the free function
 void	free_memory(t_stack **x, t_stack **y);
@@ -68,7 +69,7 @@ void	sort_five(t_stack **a, t_stack **b);
 int	*sorted_array(t_stack *x);
 int	get_index(t_stack *x, int n);
 void	complex_sort(t_stack **a, t_stack **b);
-void	chunks_move_one(t_stack **a, t_stack **b, int *arr, int mid, int chunk, int start, int end);
+void	chunks_move_one(t_stack **a, t_stack **b, int *arr, int n ,int mid, int chunk, int start, int end);
 void	chunks_move_two(t_stack **a, t_stack **b);
 
 #endif

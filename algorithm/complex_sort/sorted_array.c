@@ -6,7 +6,7 @@
 /*   By: mtellami <mtellami@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 08:23:58 by mtellami          #+#    #+#             */
-/*   Updated: 2022/11/10 09:02:11 by mtellami         ###   ########.fr       */
+/*   Updated: 2022/11/11 16:28:22 by mtellami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@ int	partition(int *arr, int start, int end)
 
 void	quick_sort(int *arr, int start, int end)
 {
-	int pivot;
-	
+	int	pivot;
+
 	if (end <= start)
 		return ;
 	pivot = partition(arr, start, end);
@@ -53,12 +53,11 @@ void	quick_sort(int *arr, int start, int end)
 
 int	*fill_array(int *arr, t_stack *x)
 {
-	int i;
+	int		i;
 	t_node	*tmp;
-	
+
 	if (!arr || !x)
 		return (0);
-	arr = malloc(sizeof(int) * stack_size(x));
 	i = 0;
 	tmp = x->head;
 	while (tmp)
@@ -74,6 +73,7 @@ int	*sorted_array(t_stack *x)
 {
 	int	*arr;
 
+	arr = malloc(sizeof(int) * stack_size(x));
 	arr = fill_array(arr, x);
 	quick_sort(arr, 0, stack_size(x));
 	return (arr);

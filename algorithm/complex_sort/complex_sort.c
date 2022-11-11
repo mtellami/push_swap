@@ -6,7 +6,7 @@
 /*   By: mtellami <mtellami@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 15:26:55 by mtellami          #+#    #+#             */
-/*   Updated: 2022/11/11 11:08:42 by mtellami         ###   ########.fr       */
+/*   Updated: 2022/11/11 16:32:33 by mtellami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,10 @@ void	complex_sort(t_stack **a, t_stack **b)
 	int	chunk;
 	int	start;
 	int	end;
+	int	s;
 
 	arr = sorted_array(*a);
+	s = stack_size(*a);
 	if (stack_size(*a) < 10)
 		n = 5;
 	else if (stack_size(*a) < 150)
@@ -32,7 +34,7 @@ void	complex_sort(t_stack **a, t_stack **b)
 	chunk = stack_size(*a) / n;
 	start = mid;
 	end = mid;
-	chunk_move_one(a, b, arr, mid, chunk, start, end);
-	chunk_move_two(a, b);
-	free(arr);                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
+	chunks_move_one(a, b, arr, s, mid, chunk, start, end);
+	chunks_move_two(a, b);
+	free(arr);
 }

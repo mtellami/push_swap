@@ -6,7 +6,7 @@
 /*   By: mtellami <mtellami@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 19:20:37 by mtellami          #+#    #+#             */
-/*   Updated: 2022/11/11 11:07:46 by mtellami         ###   ########.fr       */
+/*   Updated: 2022/11/11 16:38:20 by mtellami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	biggest_num(t_stack *x)
 {
 	t_node	*tmp;
-	int	nb;
+	int		nb;
 
 	tmp = x->head;
 	nb = tmp->data;
@@ -30,46 +30,18 @@ int	biggest_num(t_stack *x)
 
 void	chunks_move_two(t_stack **a, t_stack **b)
 {
-	int	down;
-	
-	if (!stack_size(*b))
-		return ;
-	if ((*b)->head->data == biggest_num(*b))
+	while (stack_size(*b))
 	{
-		push(a, b);
-		ft_putstr("pa\n");
-	}
-	else
-	{
-		if (!down || (*b)->head->data > pre_last_node((*a)->head)->next->data)
-		{
-			push(a, b);
-			rotate(a);
-			ft_putstr("pa\nra\n");
-			down++;
-		}
+		if ((*b)->head->data == biggest_num(*b))
+			push_a(a, b);
 		else
 		{
-			if (get_index(*b, biggest_num(*b)) > stack_size(*b) / 2)
-			{
-				while((*b)->head->data != biggest_num(*b))
-				{
-					r_rotate(b);
-					ft_putstr("rrb\n");
-				}
-				push(a, b);
-				ft_putstr("pa\n");
-			}
+			if (get_index(*b, biggest_num(*b)) > (int)stack_size(*b) / 2)
+				while ((*b)->head->data != biggest_num(*b))
+					r_rotate_b(b);
 			else
-			{
-				while((*b)->head->data != biggest_num(*b))
-				{
-					rotate(b);
-					ft_putstr("rb\n");
-				}
-				push(a, b);
-				ft_putstr("pa\n");
-			}
+				while ((*b)->head->data != biggest_num(*b))
+					rotate_b(b);
 		}
 	}
 }

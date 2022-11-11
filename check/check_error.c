@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_error.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mtellami <mtellami@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mtellami <mtellami@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 10:11:18 by mtellami          #+#    #+#             */
-/*   Updated: 2022/11/07 18:16:20 by mtellami         ###   ########.fr       */
+/*   Updated: 2022/11/11 16:23:40 by mtellami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	is_overflow(char *str)
 		else if (str[0] != '-' && ft_atoi(str) < 0)
 			return (1);
 	}
-	else 
+	else
 		return (1);
 	return (0);
 }

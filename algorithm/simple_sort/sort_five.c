@@ -3,22 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   sort_five.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mtellami <mtellami@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mtellami <mtellami@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 11:22:21 by mtellami          #+#    #+#             */
-/*   Updated: 2022/11/08 15:26:34 by mtellami         ###   ########.fr       */
+/*   Updated: 2022/11/11 16:26:31 by mtellami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int min_index5(t_node *x)
+int	min_index5(t_node *x)
 {
 	int	n1;
 	int	n2;
 	int	n3;
 	int	n4;
-	int n5;
+	int	n5;
 
 	n1 = x->data;
 	n2 = x->next->data;
@@ -37,43 +37,31 @@ int min_index5(t_node *x)
 		return (4);
 }
 
-void	shift_min_to_top5(t_stack **x)
+void	shift_min_to_top5(t_stack **a)
 {
-	if (min_index5((*x)->head) == 0)
+	if (min_index5((*a)->head) == 0)
 		return ;
-	else if (min_index5((*x)->head) == 1)
+	else if (min_index5((*a)->head) == 1)
+		rotate_a(a);
+	else if (min_index5((*a)->head) == 2)
 	{
-		rotate(x);
-		ft_putstr("ra\n");
+		rotate_a(a);
+		rotate_a(a);
 	}
-	else if (min_index5((*x)->head) == 2)
+	else if (min_index5((*a)->head) == 3)
 	{
-		rotate(x);
-		rotate(x);
-		ft_putstr("ra\nra\n");
-	}
-	else if (min_index5((*x)->head) == 3)
-	{
-		r_rotate(x);
-		r_rotate(x);
-		ft_putstr("rra\nrra\n");
+		r_rotate_a(a);
+		r_rotate_a(a);
 	}
 	else
-	{
-		r_rotate(x);
-		ft_putstr("rra\n");
-	}
+		r_rotate_a(a);
 }
 
 void	sort_five(t_stack **a, t_stack **b)
 {
 	shift_min_to_top5(a);
 	if (!(is_sorted((*a)->head)))
-	{
-		push(b, a);
-		ft_putstr("pb\n");
-	}
+		push_b(b, a);
 	sort_four(a, b);
-	push(a, b);
-	ft_putstr("pa\n");
+	push_a(a, b);
 }
