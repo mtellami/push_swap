@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   rotate_b.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mtellami <mtellami@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mtellami <mtellami@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/04 21:25:23 by mtellami          #+#    #+#             */
-/*   Updated: 2022/11/07 11:45:52 by mtellami         ###   ########.fr       */
+/*   Created: 2022/11/11 10:56:15 by mtellami          #+#    #+#             */
+/*   Updated: 2022/11/11 10:57:15 by mtellami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	push(t_stack **x, t_stack **y)
+void	rotate_a(t_stack **b)
 {
 	t_node	*tmp1;
 	t_node	*tmp2;
 
-	if (!x || !y)
+	if (!b || !(*b))
 		return ;
-	tmp1 = (*x)->head;
-	tmp2 = (*y)->head;
-	if ((*y)->size)
+	tmp1 = (*b)->head;
+	tmp2 = pre_last_node((*b)->head);
+	if (tmp1 && tmp2)
 	{
-		(*x)->head = tmp2;
-		(*y)->head = tmp2->next;
-		(*x)->head->next = tmp1;
-		(*x)->size++;
-		(*y)->size--;
+		tmp2->next->next = tmp1;
+		(*b)->head = tmp1->next;
+		tmp1->next = NULL;
+		ft_putstr("rb\n");
 	}
 }

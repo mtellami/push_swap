@@ -1,23 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_pivot.c                                        :+:      :+:    :+:   */
+/*   r_rotate_b.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mtellami <mtellami@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mtellami <mtellami@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/08 16:10:12 by mtellami          #+#    #+#             */
-/*   Updated: 2022/11/08 16:16:35 by mtellami         ###   ########.fr       */
+/*   Created: 2022/11/11 10:59:06 by mtellami          #+#    #+#             */
+/*   Updated: 2022/11/11 10:59:38 by mtellami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int get_pivot(t_stack *x, int i)
+void	r_rotate(t_stack **b)
 {
-	t_node	*tmp;
-	
-	tmp = x->head;
-	while (i--)
-		tmp = tmp->next;
-	return (tmp->data);
+	t_node	*tmp1;
+	t_node	*tmp2;
+
+	if (!b || !(*b))
+		return ;
+	tmp1 = (*b)->head;
+	tmp2 = pre_last_node((*b)->head);
+	if (tmp1 && tmp2)
+	{
+		tmp2->next->next = tmp1;
+		(*b)->head = tmp2->next;
+		tmp2->next = NULL;
+		ft_putstr("rrb\n");
+	}
 }
