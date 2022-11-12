@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap_b.c                                           :+:      :+:    :+:   */
+/*   push_a_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mtellami <mtellami@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/12 09:09:03 by mtellami          #+#    #+#             */
-/*   Updated: 2022/11/12 09:09:27 by mtellami         ###   ########.fr       */
+/*   Created: 2022/11/04 21:25:23 by mtellami          #+#    #+#             */
+/*   Updated: 2022/11/12 15:59:18 by mtellami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	swap_b(t_stack **b)
+void	push_a(t_stack **a, t_stack **b)
 {
 	t_node	*tmp1;
 	t_node	*tmp2;
 
-	if (!b)
+	if (!a || !b)
 		return ;
-	tmp1 = (*b)->head;
-	tmp2 = (*b)->head->next;
-	if (tmp1 && tmp2)
+	tmp1 = (*a)->head;
+	tmp2 = (*b)->head;
+	if ((*b)->size)
 	{
-		tmp1->next = tmp2->next;
-		tmp2->next = tmp1;
-		(*b)->head = tmp2;
-		ft_putstr("sb\n");
+		(*a)->head = tmp2;
+		(*b)->head = tmp2->next;
+		(*a)->head->next = tmp1;
+		(*a)->size++;
+		(*b)->size--;
 	}
 }

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mtellami <mtellami@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mtellami <mtellami@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 22:10:05 by mtellami          #+#    #+#             */
-/*   Updated: 2022/10/20 13:31:09 by mtellami         ###   ########.fr       */
+/*   Updated: 2022/11/12 17:39:42 by mtellami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "push_swap.h"
 
 char	*get_reminder(char *tmp)
 {
@@ -66,7 +66,7 @@ char	*get_new_line(char *tmp)
 	return (line);
 }
 
-char	*read_file(int fd, char *tmp)
+char	*read_file(int fd, char *tmp, int BUFFER_SIZE)
 {
 	char		*buff;
 	int			i;
@@ -90,14 +90,14 @@ char	*read_file(int fd, char *tmp)
 	return (tmp);
 }
 
-char	*get_next_line(int fd)
+char	*get_next_line(int fd, int BUFFER_SIZE)
 {
 	static char	*tmp;
 	char		*line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	tmp = read_file(fd, tmp);
+	tmp = read_file(fd, tmp, BUFFER_SIZE);
 	if (!tmp)
 		return (NULL);
 	if (!(*tmp))

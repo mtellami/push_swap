@@ -6,7 +6,7 @@
 /*   By: mtellami <mtellami@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 20:14:46 by mtellami          #+#    #+#             */
-/*   Updated: 2022/11/12 09:07:27 by mtellami         ###   ########.fr       */
+/*   Updated: 2022/11/12 17:53:22 by mtellami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,10 @@ typedef struct s_form
 // libft functions
 void	ft_putstr(char *str);
 int		ft_atoi(const char *str);
-int		ft_strlen(char *str);
+int	ft_strlen(char *str);
 int		ft_isdigit(char c);
+char	*ft_strstr(const char *big, const char *little);
+int	ft_strcmp(char *s1, char *s2);
 
 // checking functions
 int		check_error(int n, char **av);
@@ -84,6 +86,19 @@ void	chunks_move_two(t_stack **a, t_stack **b);
 t_form	*make_form(int *tab, int s, int n);
 
 // checher (bonus)
+// get_next_line
+char	*get_next_line(int fd, int BUFFER_SIZE);
+int		ft_strchr(char *str);
+char	*ft_strjoin(char *s1, char *s2);
 
+// bonus operators
+void	push_a(t_stack **a, t_stack **b);
+void	push_b(t_stack **b, t_stack **a);
+void	r_rotate_a(t_stack **a);
+void	r_rotate_b(t_stack **b);
+void	rotate_a(t_stack **a);
+void	rotate_b(t_stack **b);
+void	swap_a(t_stack **a);
+void	swap_b(t_stack **b);
 
 #endif

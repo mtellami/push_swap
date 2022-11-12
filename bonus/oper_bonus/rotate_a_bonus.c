@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_sorted.c                                        :+:      :+:    :+:   */
+/*   rotate_a_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mtellami <mtellami@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/06 12:16:41 by mtellami          #+#    #+#             */
-/*   Updated: 2022/11/12 17:49:56 by mtellami         ###   ########.fr       */
+/*   Created: 2022/11/04 21:25:10 by mtellami          #+#    #+#             */
+/*   Updated: 2022/11/12 15:59:05 by mtellami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	is_sorted(t_node *x)
+void	rotate_a(t_stack **a)
 {
-	t_node	*tmp;
+	t_node	*tmp1;
+	t_node	*tmp2;
 
-	if (!x)
-		return (0);
-	tmp = x;
-	while (tmp->next)
+	if (!a || !(*a))
+		return ;
+	tmp1 = (*a)->head;
+	tmp2 = pre_last_node((*a)->head);
+	if (tmp1 && tmp2)
 	{
-		if (tmp->data > tmp->next->data)
-			return (0);
-		tmp = tmp->next;
+		tmp2->next->next = tmp1;
+		(*a)->head = tmp1->next;
+		tmp1->next = NULL;
 	}
-	return (1);
 }

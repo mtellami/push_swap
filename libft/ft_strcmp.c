@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate_b.c                                         :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mtellami <mtellami@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/11 10:56:15 by mtellami          #+#    #+#             */
-/*   Updated: 2022/11/11 12:29:24 by mtellami         ###   ########.fr       */
+/*   Created: 2022/11/12 16:01:02 by mtellami          #+#    #+#             */
+/*   Updated: 2022/11/12 16:06:49 by mtellami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rotate_b(t_stack **b)
+int	ft_strcmp(char *s1, char *s2)
 {
-	t_node	*tmp1;
-	t_node	*tmp2;
+	size_t	i;
 
-	if (!b || !(*b))
-		return ;
-	tmp1 = (*b)->head;
-	tmp2 = pre_last_node((*b)->head);
-	if (tmp1 && tmp2)
+	i = 0;
+	while ((s1[i] || s2[i]))
 	{
-		tmp2->next->next = tmp1;
-		(*b)->head = tmp1->next;
-		tmp1->next = NULL;
-		ft_putstr("rb\n");
+		if (s1[i] != s2[i])
+			return (s1[i] - s2[i]);
+		i++;
 	}
+	return (0);
 }

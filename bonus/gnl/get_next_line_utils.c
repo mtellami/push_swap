@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mtellami <mtellami@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mtellami <mtellami@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 22:11:24 by mtellami          #+#    #+#             */
-/*   Updated: 2022/10/18 07:04:50 by mtellami         ###   ########.fr       */
+/*   Updated: 2022/11/12 16:10:56 by mtellami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "push_swap.h"
 
 int	ft_strchr(char *str)
 {
@@ -23,16 +23,6 @@ int	ft_strchr(char *str)
 		str++;
 	}
 	return (0);
-}
-
-size_t	ft_strlen(char *str)
-{
-	size_t	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
 }
 
 char	*ft_strjoin(char *s1, char *s2)

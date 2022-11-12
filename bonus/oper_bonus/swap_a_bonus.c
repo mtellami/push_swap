@@ -1,24 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   swap_a_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mtellami <mtellami@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mtellami <mtellami@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/15 22:07:52 by mtellami          #+#    #+#             */
-/*   Updated: 2022/10/18 04:52:27 by mtellami         ###   ########.fr       */
+/*   Created: 2022/11/04 21:25:00 by mtellami          #+#    #+#             */
+/*   Updated: 2022/11/12 15:58:55 by mtellami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "push_swap.h"
 
-# include <unistd.h>
-# include <stdlib.h>
+void	swap_a(t_stack **a)
+{
+	t_node	*tmp1;
+	t_node	*tmp2;
 
-char	*get_next_line(int fd);
-int		ft_strchr(char *str);
-size_t	ft_strlen(char *str);
-char	*ft_strjoin(char *s1, char *s2);
-
-#endif
+	if (!a)
+		return ;
+	tmp1 = (*a)->head;
+	tmp2 = (*a)->head->next;
+	if (tmp1 && tmp2)
+	{
+		tmp1->next = tmp2->next;
+		tmp2->next = tmp1;
+		(*a)->head = tmp2;
+	}
+}

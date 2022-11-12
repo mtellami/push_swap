@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate_a.c                                         :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mtellami <mtellami@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/04 21:25:10 by mtellami          #+#    #+#             */
-/*   Updated: 2022/11/11 10:55:29 by mtellami         ###   ########.fr       */
+/*   Created: 2022/11/12 16:01:12 by mtellami          #+#    #+#             */
+/*   Updated: 2022/11/12 16:05:57 by mtellami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rotate_a(t_stack **a)
+char	*ft_strstr(const char *big, const char *little)
 {
-	t_node	*tmp1;
-	t_node	*tmp2;
+	size_t	i;
 
-	if (!a || !(*a))
-		return ;
-	tmp1 = (*a)->head;
-	tmp2 = pre_last_node((*a)->head);
-	if (tmp1 && tmp2)
+	if (!(*little))
+		return ((char *)big);
+	while (*big)
 	{
-		tmp2->next->next = tmp1;
-		(*a)->head = tmp1->next;
-		tmp1->next = NULL;
-		ft_putstr("ra\n");
+		i = 0;
+		while (little[i] == big[i])
+		{
+			if (!little[i + 1])
+				return ((char *)big);
+			i++;
+		}
+		big++;
 	}
+	return (0);
 }

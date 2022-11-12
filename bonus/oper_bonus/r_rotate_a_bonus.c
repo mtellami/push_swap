@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap_a.c                                           :+:      :+:    :+:   */
+/*   r_rotate_a_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mtellami <mtellami@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/04 21:25:00 by mtellami          #+#    #+#             */
-/*   Updated: 2022/11/12 09:10:05 by mtellami         ###   ########.fr       */
+/*   Created: 2022/11/04 21:25:17 by mtellami          #+#    #+#             */
+/*   Updated: 2022/11/12 15:59:12 by mtellami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	swap_a(t_stack **a)
+void	r_rotate_a(t_stack **a)
 {
 	t_node	*tmp1;
 	t_node	*tmp2;
 
-	if (!a)
+	if (!a || !(*a))
 		return ;
 	tmp1 = (*a)->head;
-	tmp2 = (*a)->head->next;
+	tmp2 = pre_last_node((*a)->head);
 	if (tmp1 && tmp2)
 	{
-		tmp1->next = tmp2->next;
-		tmp2->next = tmp1;
-		(*a)->head = tmp2;
-		ft_putstr("sa\n");
+		tmp2->next->next = tmp1;
+		(*a)->head = tmp2->next;
+		tmp2->next = NULL;
 	}
 }
