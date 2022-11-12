@@ -31,6 +31,7 @@ SRCS =  libft/ft_atoi.c \
 		algorithm/complex_sort/chunks_move_one.c \
 		algorithm/complex_sort/chunks_move_two.c \
 		algorithm/complex_sort/sorted_array.c \
+		algorithm/complex_sort/make_form.c \
 
 
 $(NAME) :

@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_sorted.c                                        :+:      :+:    :+:   */
+/*   make_form.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mtellami <mtellami@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/06 12:16:41 by mtellami          #+#    #+#             */
-/*   Updated: 2022/11/11 20:22:53 by mtellami         ###   ########.fr       */
+/*   Created: 2022/11/11 17:30:39 by mtellami          #+#    #+#             */
+/*   Updated: 2022/11/11 18:26:56 by mtellami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	is_sorted(t_node *x)
+t_form	*make_form(int *tab, int s, int n)
 {
-	t_node	*tmp;
+	t_form	*new;
 
-	if (!x)
-		return (0);
-	tmp = x;
-	while (tmp->next)
-	{
-		if (tmp->data > tmp->next->data)
-			return (0);
-		tmp = tmp->next;
-	}
-	return (1);
+	new = malloc(sizeof(t_form));
+	if (!new)
+		return (NULL);
+	new->arr = tab;
+	new->size = s;
+	new->midd = s / 2;
+	new->chunk = s / n;
+	new->start = s / 2;
+	new->end = s / 2;
+	return (new);
 }

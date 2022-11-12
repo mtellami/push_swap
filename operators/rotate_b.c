@@ -6,7 +6,7 @@
 /*   By: mtellami <mtellami@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 10:56:15 by mtellami          #+#    #+#             */
-/*   Updated: 2022/11/11 12:29:24 by mtellami         ###   ########.fr       */
+/*   Updated: 2022/11/12 08:23:35 by mtellami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	rotate_b(t_stack **b)
 	t_node	*tmp1;
 	t_node	*tmp2;
 
-	if (!b || !(*b))
+	if (!b || !(*b) || (*b)->size < 2)
 		return ;
 	tmp1 = (*b)->head;
 	tmp2 = pre_last_node((*b)->head);

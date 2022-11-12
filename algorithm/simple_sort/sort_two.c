@@ -6,7 +6,7 @@
 /*   By: mtellami <mtellami@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 11:18:11 by mtellami          #+#    #+#             */
-/*   Updated: 2022/11/11 12:17:46 by mtellami         ###   ########.fr       */
+/*   Updated: 2022/11/11 20:40:44 by mtellami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,5 @@
 void	sort_two(t_stack **a)
 {
 	if (!(is_sorted((*a)->head)))
-	{
 		swap(a);
-		ft_putstr("sa\n");
-	}
 }

@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_sorted.c                                        :+:      :+:    :+:   */
+/*   swap_a.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mtellami <mtellami@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/06 12:16:41 by mtellami          #+#    #+#             */
-/*   Updated: 2022/11/11 20:22:53 by mtellami         ###   ########.fr       */
+/*   Created: 2022/11/04 21:25:00 by mtellami          #+#    #+#             */
+/*   Updated: 2022/11/12 09:10:05 by mtellami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	is_sorted(t_node *x)
+void	swap_a(t_stack **a)
 {
-	t_node	*tmp;
+	t_node	*tmp1;
+	t_node	*tmp2;
 
-	if (!x)
-		return (0);
-	tmp = x;
-	while (tmp->next)
+	if (!a)
+		return ;
+	tmp1 = (*a)->head;
+	tmp2 = (*a)->head->next;
+	if (tmp1 && tmp2)
 	{
-		if (tmp->data > tmp->next->data)
-			return (0);
-		tmp = tmp->next;
+		tmp1->next = tmp2->next;
+		tmp2->next = tmp1;
+		(*a)->head = tmp2;
+		ft_putstr("sa\n");
 	}
-	return (1);
 }

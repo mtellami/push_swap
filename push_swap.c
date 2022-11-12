@@ -6,7 +6,7 @@
 /*   By: mtellami <mtellami@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 20:16:02 by mtellami          #+#    #+#             */
-/*   Updated: 2022/11/11 15:37:46 by mtellami         ###   ########.fr       */
+/*   Updated: 2022/11/12 08:59:37 by mtellami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	main(int ac, char **av)
 		return (0);
 	if (check_error(ac, av))
 	{
-		ft_putstr("Error\n");
+		write(2, "Error\n", 6);
 		return (0);
 	}
 	a = new_stack(ac, av);

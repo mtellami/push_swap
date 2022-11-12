@@ -6,7 +6,7 @@
 /*   By: mtellami <mtellami@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 20:14:46 by mtellami          #+#    #+#             */
-/*   Updated: 2022/11/11 12:25:26 by mtellami         ###   ########.fr       */
+/*   Updated: 2022/11/12 09:07:27 by mtellami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,21 @@ typedef struct s_stack
 	size_t	size;
 }	t_stack;
 
+typedef struct s_form
+{
+	int	*arr;
+	int	size;
+	int	midd;
+	int	chunk;
+	int	start;
+	int	end;
+}	t_form;
+
 // libft functions
 void	ft_putstr(char *str);
 int		ft_atoi(const char *str);
 int		ft_strlen(char *str);
-int	ft_isdigit(char c);
+int		ft_isdigit(char c);
 
 // checking functions
 int		check_error(int n, char **av);
@@ -66,10 +76,14 @@ void	sort_four(t_stack **a, t_stack **b);
 void	sort_five(t_stack **a, t_stack **b);
 
 // complex sort functions
-int	*sorted_array(t_stack *x);
-int	get_index(t_stack *x, int n);
+int		*sorted_array(t_stack *x);
+int		get_index(t_stack *x, int n);
 void	complex_sort(t_stack **a, t_stack **b);
-void	chunks_move_one(t_stack **a, t_stack **b, int *arr, int n ,int mid, int chunk, int start, int end);
+void	chunks_move_one(t_stack **a, t_stack **b, t_form **x);
 void	chunks_move_two(t_stack **a, t_stack **b);
+t_form	*make_form(int *tab, int s, int n);
+
+// checher (bonus)
+
 
 #endif
