@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate_b_bonus.c                                   :+:      :+:    :+:   */
+/*   ra.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mtellami <mtellami@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/11 10:56:15 by mtellami          #+#    #+#             */
-/*   Updated: 2022/11/12 15:59:01 by mtellami         ###   ########.fr       */
+/*   Created: 2022/11/04 21:25:10 by mtellami          #+#    #+#             */
+/*   Updated: 2022/11/14 16:17:08 by mtellami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rotate_b(t_stack **b)
+void	ra(t_stack **a)
 {
 	t_node	*tmp1;
 	t_node	*tmp2;
 
-	if (!b || !(*b))
+	if (!a || !(*a) || (*a)->size <= 1)
 		return ;
-	tmp1 = (*b)->head;
-	tmp2 = pre_last_node((*b)->head);
+	tmp1 = (*a)->head;
+	tmp2 = pre_last_node((*a)->head);
 	if (tmp1 && tmp2)
 	{
 		tmp2->next->next = tmp1;
-		(*b)->head = tmp1->next;
+		(*a)->head = tmp1->next;
 		tmp1->next = NULL;
 	}
 }

@@ -1,40 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   sa.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mtellami <mtellami@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/03 20:16:02 by mtellami          #+#    #+#             */
-/*   Updated: 2022/11/12 08:59:37 by mtellami         ###   ########.fr       */
+/*   Created: 2022/11/04 21:25:00 by mtellami          #+#    #+#             */
+/*   Updated: 2022/11/14 16:12:03 by mtellami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int ac, char **av)
+void	sa(t_stack **a)
 {
-	t_stack	*a;
-	t_stack	*b;
+	t_node	*tmp1;
+	t_node	*tmp2;
 
-	if (ac < 2)
-		return (0);
-	if (check_error(ac, av))
+	if (!a || (*a)->size <= 1)
+		return ;
+	tmp1 = (*a)->head;
+	tmp2 = (*a)->head->next;
+	if (tmp1 && tmp2)
 	{
-		write(2, "Error\n", 6);
-		return (0);
+		tmp1->next = tmp2->next;
+		tmp2->next = tmp1;
+		(*a)->head = tmp2;
 	}
-	a = new_stack(ac, av);
-	b = new_stack(0, av);
-	if (is_sorted(a->head))
-	{
-		free_memory(&a, &b);
-		return (0);
-	}
-	if (ac < 7)
-		simple_sort(&a, &b);
-	else
-		complex_sort(&a, &b);
-	free_memory(&a, &b);
-	return (0);
 }

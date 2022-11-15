@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   sb.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mtellami <mtellami@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/12 16:01:02 by mtellami          #+#    #+#             */
-/*   Updated: 2022/11/12 16:06:49 by mtellami         ###   ########.fr       */
+/*   Created: 2022/11/12 09:09:03 by mtellami          #+#    #+#             */
+/*   Updated: 2022/11/14 16:12:07 by mtellami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_strcmp(char *s1, char *s2)
+void	sb(t_stack **b)
 {
-	size_t	i;
+	t_node	*tmp1;
+	t_node	*tmp2;
 
-	i = 0;
-	while ((s1[i] || s2[i]))
+	if (!b || (*b)->size <= 1)
+		return ;
+	tmp1 = (*b)->head;
+	tmp2 = (*b)->head->next;
+	if (tmp1 && tmp2)
 	{
-		if (s1[i] != s2[i])
-			return (s1[i] - s2[i]);
-		i++;
+		tmp1->next = tmp2->next;
+		tmp2->next = tmp1;
+		(*b)->head = tmp2;
 	}
-	return (0);
 }

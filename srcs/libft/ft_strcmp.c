@@ -1,30 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate_a_bonus.c                                   :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mtellami <mtellami@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/04 21:25:10 by mtellami          #+#    #+#             */
-/*   Updated: 2022/11/12 15:59:05 by mtellami         ###   ########.fr       */
+/*   Created: 2022/11/12 16:01:02 by mtellami          #+#    #+#             */
+/*   Updated: 2022/11/14 09:07:19 by mtellami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rotate_a(t_stack **a)
+int	ft_strcmp(char *s1, char *s2)
 {
-	t_node	*tmp1;
-	t_node	*tmp2;
+	size_t	i;
 
-	if (!a || !(*a))
-		return ;
-	tmp1 = (*a)->head;
-	tmp2 = pre_last_node((*a)->head);
-	if (tmp1 && tmp2)
+	i = 0;
+	while ((s1[i] || s2[i]))
 	{
-		tmp2->next->next = tmp1;
-		(*a)->head = tmp1->next;
-		tmp1->next = NULL;
+		if (s1[i] != s2[i])
+			return (s1[i] - s2[i]);
+		i++;
 	}
+	return (0);
 }

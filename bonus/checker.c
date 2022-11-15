@@ -6,7 +6,7 @@
 /*   By: mtellami <mtellami@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 12:52:41 by mtellami          #+#    #+#             */
-/*   Updated: 2022/11/12 17:39:04 by mtellami         ###   ########.fr       */
+/*   Updated: 2022/11/14 16:34:35 by mtellami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,40 +15,47 @@
 void	shifting(t_stack **a, t_stack **b, char *str)
 {
 	if (!ft_strcmp(str, "ra\n"))
-		rotate_a(a);
+		ra(a);
 	else if (!ft_strcmp(str, "rb\n"))
-		rotate_b(b);
+		rb(b);
 	else if (!ft_strcmp(str, "rr\n"))
 	{
-		rotate_a(a);
-		rotate_b(b);
+		ra(a);
+		rb(b);
 	}
 	else if (!ft_strcmp(str, "rra\n"))
-		r_rotate_a(a);
+		rra(a);
 	else if (!ft_strcmp(str, "rrb\n"))
-		r_rotate_b(b);
+		rrb(b);
 	else if (!ft_strcmp(str, "rrr\n"))
 	{
-		r_rotate_a(a);
-		r_rotate_b(b);
+		rra(a);
+		rrb(b);
+	}
+	else
+	{
+		free(str);
+		write(2, "Error\n", 7);
+		free_memory(a, b);
+		exit (0);
 	}
 }
 
 void	applying_inst(t_stack **a, t_stack **b, char *str)
 {
 	if (!ft_strcmp(str, "sa\n"))
-		swap_a(a);
+		sa(a);
 	else if (!ft_strcmp(str, "sb\n"))
-		swap_b(b);
+		sb(b);
 	else if (!ft_strcmp(str, "ss\n"))
-		{
-			swap_a(a);
-			swap_b(b);
-		}
+	{
+		sa(a);
+		sb(b);
+	}
 	else if (!ft_strcmp(str, "pa\n"))
-		push_a(a, b);
+		pa(a, b);
 	else if (!ft_strcmp(str, "pb\n"))
-		push_b(b, a);
+		pb(b, a);
 	else
 		shifting(a, b, str);
 }
@@ -56,19 +63,13 @@ void	applying_inst(t_stack **a, t_stack **b, char *str)
 void	get_instructions(t_stack **a, t_stack **b)
 {
 	char	*buffer;
-	char	*inst;
 
-	inst = "sa\nsb\nss\npa\npb\nra\nrb\nrr\nrra\nrrb\nrrr\n";
-	while ((buffer = get_next_line(0, 10)))
+	buffer = get_next_line(0, 10);
+	while (buffer)
 	{
-		if (!ft_strstr(inst, buffer))
-		{
-			free(buffer);
-			write(2, "Error\n", 6);
-			return ;
-		}
 		applying_inst(a, b, buffer);
 		free(buffer);
+		buffer = get_next_line(0, 10);
 	}
 	if (is_sorted((*a)->head) && !(*b)->size)
 		ft_putstr("OK\n");
@@ -76,20 +77,20 @@ void	get_instructions(t_stack **a, t_stack **b)
 		ft_putstr("KO\n");
 }
 
-int main(int ac, char **av)
+int	main(int argc, char **argv)
 {
 	t_stack	*a;
 	t_stack	*b;
 
-	if (ac < 2)
+	if (argc < 2)
 		return (0);
-	if (check_error(ac, av))
+	if (check_error(argc, argv))
 	{
 		write(2, "Error\n", 6);
 		return (0);
 	}
-	a = new_stack(ac, av);
-	b = new_stack(0, av);
+	a = new_stack(argc, argv);
+	b = new_stack(0, argv);
 	get_instructions(&a, &b);
 	free_memory(&a, &b);
 	return (0);

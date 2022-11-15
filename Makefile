@@ -1,71 +1,53 @@
 NAME = push_swap
-CHECKER = mychecker
-CC = cc
+B_NAME = checker
 RM = rm -fr
-MAIN = push_swap.c
-BONUS = bonus/checker.c
 CFLAGS = -Wall -Wextra -Werror -I .
 
-LIBFT = libft/ft_atoi.c \
-		libft/ft_putstr.c \
-		libft/ft_strlen.c \
-		libft/ft_isdigit.c \
-		libft/ft_strcmp.c \
-		libft/ft_strstr.c \
+SRCS =  srcs/operators/push_a.c srcs/operators/push_b.c srcs/operators/swap.c srcs/operators/rotate_a.c \
+		srcs/operators/rotate_b.c srcs/operators/r_rotate_a.c srcs/operators/r_rotate_b.c \
+		srcs/simple_sort/simple_sort.c srcs/simple_sort/sort_two.c srcs/simple_sort/sort_three.c \
+		srcs/simple_sort/sort_four.c srcs/simple_sort/sort_five.c \
+		srcs/complex_sort/complex_sort.c srcs/complex_sort/get_index.c srcs/complex_sort/chunks_move_one.c \
+		srcs/complex_sort/chunks_move_two.c srcs/complex_sort/sorted_array.c \
+		srcs/complex_sort/make_form.c srcs/complex_sort/last_node.c \
+		srcs/utils/add_node.c srcs/utils/new_node.c srcs/utils/new_stack.c \
+		srcs/utils/pre_last_node.c srcs/utils/stack_size.c srcs/utils/free_memory.c \
+		srcs/check/check_error.c srcs/check/is_sorted.c \
+		srcs/libft/ft_atoi.c srcs/libft/ft_putstr.c srcs/libft/ft_strlen.c \
+		srcs/libft/ft_isdigit.c \
+		srcs/push_swap.c \
 
-CHECK = check/check_error.c \
-		check/is_sorted.c \
+OBJS = $(SRCS:.c=.o)
 
-UTILS = utils/add_node.c \
-		utils/new_node.c \
-		utils/new_stack.c \
-		utils/pre_last_node.c \
-		utils/stack_size.c \
-		utils/free_memory.c \
-
-SRCS =  operators/push_a.c \
-		operators/push_b.c \
-		operators/swap.c \
-		operators/rotate_a.c \
-		operators/rotate_b.c \
-		operators/r_rotate_a.c \
-		operators/r_rotate_b.c \
-		algorithm/simple_sort/simple_sort.c \
-		algorithm/simple_sort/sort_two.c \
-		algorithm/simple_sort/sort_three.c \
-		algorithm/simple_sort/sort_four.c \
-		algorithm/simple_sort/sort_five.c \
-		algorithm/complex_sort/complex_sort.c \
-		algorithm/complex_sort/get_index.c \
-		algorithm/complex_sort/chunks_move_one.c \
-		algorithm/complex_sort/chunks_move_two.c \
-		algorithm/complex_sort/sorted_array.c \
-		algorithm/complex_sort/make_form.c \
-
-BSCS = bonus/gnl/get_next_line.c \
-	   bonus/gnl/get_next_line_utils.c \
-	   bonus/oper_bonus/push_a_bonus.c \
-	   bonus/oper_bonus/push_b_bonus.c \
-	   bonus/oper_bonus/swap_a_bonus.c \
-	   bonus/oper_bonus/swap_b_bonus.c \
-	   bonus/oper_bonus/rotate_a_bonus.c \
-	   bonus/oper_bonus/rotate_b_bonus.c \
-	   bonus/oper_bonus/r_rotate_a_bonus.c \
-	   bonus/oper_bonus/r_rotate_b_bonus.c \
+B_SRCS = bonus/gnl/get_next_line_utils.c bonus/gnl/get_next_line.c bonus/oper_bonus/pa.c \
+		 bonus/oper_bonus/pb.c bonus/oper_bonus/rra.c bonus/oper_bonus/rrb.c \
+		 bonus/oper_bonus/ra.c bonus/oper_bonus/rb.c bonus/oper_bonus/sa.c \
+		 bonus/oper_bonus/sb.c bonus/checker.c srcs/utils/free_memory.c \
+		 srcs/check/check_error.c srcs/check/is_sorted.c srcs/libft/ft_putstr.c \
+		 srcs/libft/ft_strcmp.c srcs/libft/ft_strlen.c  \
+		 srcs/utils/pre_last_node.c srcs/libft/ft_atoi.c \
+		 srcs/libft/ft_isdigit.c srcs/utils/new_stack.c \
+		 srcs/utils/add_node.c srcs/utils/new_node.c \
 
 
-$(NAME) :
-			$(CC) $(MAIN) $(CFLAGS) $(SRCS) $(LIBFT) $(CHECK) $(UTILS) -o $(NAME)
+B_OBJS = $(B_SRCS:.c=.o)
+
+
+$(NAME) : $(OBJS)
+		cc $(CFLAGS) $(OBJS) -o $(NAME)
 
 all	: $(NAME)
-
-bonus : all 
-		$(CC) $(CFLAGS) $(BONUS) $(BSCS) $(LIBFT) $(CHECK) $(UTILS) -o $(CHECKER)
 	
+$(B_NAME) : $(B_OBJS)
+		cc $(CFLAGS) $(B_OBJS) -o $(B_NAME)
+
+bonus : all $(B_NAME)
+		
+
 clean :
-		$(RM) $(NAME) $(CHECKER)
+		$(RM) $(OBJS) $(B_OBJS)
 
 fclean : clean
-		$(RM) $(NAME) $(CHECKER)
+		$(RM) $(NAME) $(B_NAME)
 
 re : fclean all
