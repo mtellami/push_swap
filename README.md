@@ -11,9 +11,10 @@ optimized data sorting.
 ---
 
 ### ♦️  Topic
-  -  What is a Stack ?
-  -  Sorting algorithms ?
-  - ⚠ its all about burning your mind NOT keep repeating useless information you memorize.
+  - #### What is a Stack ?</br>
+  A stack is a linear data structure that follows the principle of Last In First Out (LIFO). This means the last element inserted inside the stack is removed first.
+  - #### Sorting algorithms ?</br>
+  A sorting algorithm is used to arrange elements of an array/list in a specific order, there are various sorting algorithms that can be used to complete this operation.</br>The efficiency of any sorting algorithm is determined by the time complexity and space complexity of the algorithm.
 
 ### ♦️  Mandatory
   - 🔹 Creating operations (sa, sb, ss, pa, pb, ra, rb, rr, rra, rrb, rrr).
